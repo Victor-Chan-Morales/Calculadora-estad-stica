@@ -43,14 +43,26 @@ namespace Calculadora_estadística
             }
             return suma / lista.Count;
         }
+        static double CalcularMediana(List<double> lista)
+        {
+            listaNumero.Sort();
+            cantidadNumeros = listaNumero.Count;
+            if (cantidadNumeros%2==1)
+            {
+                return listaNumero[cantidadNumeros/ 2];
+            }
+            else
+            {
+                int mid1 = (cantidadNumeros / 2) - 1;
+                int mid2 = cantidadNumeros / 2;
+                return (listaNumero[mid1] + listaNumero[mid2]) / 2;
+            }
+        }
         static void MostrarResultado()
         {
             Console.Clear();
+            Console.WriteLine("De los números ingresados: "+listaNumero);
             Console.WriteLine("El resultado es: " + resultado);
-        }
-        static double CalcularMediana(List<double> lista)
-        {
-            
         }
         static void Main(string[] args)
         {
@@ -70,6 +82,15 @@ namespace Calculadora_estadística
                             break;
                         case 2:
                             resultado = CalcularMedia(listaNumero);
+                            MostrarResultado();
+                            Console.ReadKey();
+                            break;
+                        case 3:
+                            resultado= CalcularMediana(listaNumero);
+                            MostrarResultado();
+                            Console.ReadKey();
+                            break;
+                        case 4:
                             MostrarResultado();
                             Console.ReadKey();
                             break;
